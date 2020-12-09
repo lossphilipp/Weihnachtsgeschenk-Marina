@@ -1,5 +1,5 @@
 'use strict';
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 	var bereich = 0,
 		zufallszahl = 0,
 		eingabe = 0,
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	inputBereich.addEventListener('keyup', function(event) {
 		if (event.keyCode === 13) {
-			document.querySelector('#bereich').click();
+			document.querySelector('#start').click();
 		}
 	}); 
 
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	
-	// Beschreibungen ein-/ausblenden
+	// Spielbeschreibungen ein-/ausblenden
 	document.querySelector('#zahlenButton').addEventListener('click', function(event) {
 		var beschreibungZahlen = document.querySelector('#beschreibungZahlen');
 		if (beschreibungZahlen.getAttribute('aria-hidden') == 'false') {

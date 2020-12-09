@@ -32,27 +32,27 @@
 		
 		<main>
 			<h1>Spiele</h1>
-			<p>Es wird empfohlen, die Spiele auf dem Computer zu spielen. Sie sind dort einfacher zu bedienen.</p>
-			<h2>Zahlenrätsel</h2>
-			<form class="zahlenraetsel">
-				<button type="button" id="zahlenButton">Beschreibung ein-/ausblenden</button><br>
-				<p id="beschreibungZahlen" aria-hidden="true" class ="unsichtbar">Zuerst muss ein Bereich angegeben werden, in dem der Computer eine 
-					zufällige Zahl aussucht. Anschließend muss durch geschicktes Raten versucht werden, mit möglichst wenigen Versuchen die gesuchte 
-					Zahl zu finden.<br></p>
-				<br>
-				<div id="output">
-					<output>Hier werden die Ergebnisse angezeigt</output>
-				</div><br>
-				<div id="vorbereitung" aria-hidden="false" class ="sichtbar">
-					<label for="bereich">Der mögliche Bereich soll zwischen 1 und <input id="bereich" type="number" step="1" value="100"> liegen.</label><br>
-					<button type="button" id="start">Rätsel starten</button><br>
-				</div>
-				<div id="spielen" aria-hidden="true" class ="unsichtbar">
-					<label for="eingabe">Deine Eingabe: <input id="eingabe" type="number" step="1" value="50"></label>
-					<button type="button" id="check">Richtig?</button><br>
-				</div>
-				<button id="reset" type="reset" aria-hidden="true" class ="unsichtbar">Eingaben zurücksetzen</button>
-			</form>
+			<p>Uf am Computer siand d Spiele a bizle einfacher zm bediana, aber sie funktionieren uf am Handy genauso.</p>
+			<div class="zahlenraetsel">
+				<h2>Zahlenrätsel</h2>
+				<form>
+					<button type="button" id="zahlenButton">Beschreibung ein-/ausblenden</button><br>
+					<p id="beschreibungZahlen" aria-hidden="true" class ="unsichtbar">Zuerst muss ein Bereich angegeben werden, in dem der Computer eine zufällige Zahl aussucht. Anschließend muss durch geschicktes Raten versucht werden, mit möglichst wenigen Versuchen die gesuchte Zahl zu finden.<br></p>
+					<br>
+					<div id="output">
+						<output>Hier werden die Ergebnisse angezeigt</output>
+					</div><br>
+					<div id="vorbereitung" aria-hidden="false" class ="sichtbar">
+						<label for="bereich">Der mögliche Bereich soll zwischen 1 und <input id="bereich" type="number" step="1" value="100"> liegen.</label><br>
+						<button type="button" id="start">Rätsel starten</button><br>
+					</div>
+					<div id="spielen" aria-hidden="true" class ="unsichtbar">
+						<label for="eingabe">Deine Eingabe: <input id="eingabe" type="number" step="1" value="50"></label>
+						<button type="button" id="check">Eingabe</button><br>
+					</div>
+					<button id="reset" type="reset" aria-hidden="true" class ="unsichtbar">Eingaben zurücksetzen</button>
+				</form>
+			</div>
 		</main>
 	</body>
 </html>
