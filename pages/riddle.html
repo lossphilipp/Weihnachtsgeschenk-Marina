@@ -6,6 +6,7 @@
 		<title>Rätsel | Weihnachtsgeschenk für Marina</title>
 		<link rel = "icon" href ="../icons/heart-red.svg" type = "image/x-icon"> 
 		<link rel="stylesheet" type="text/css" href="../default-theme.css">
+		<script src="riddle.js" type="text/JavaScript"></script>
 	</head>
 	
 	<body>
@@ -32,73 +33,133 @@
 		<main>
 			<h1>Rätsel</h1>
 			<form id="raetsel">
-				<label for="progress">Beantwortete Fragen:</label>
-				<progress id="progress" max="100" value="70"></progress>
+				<p class="keinUntenabstand">Beantwortete Fragen:</p>
+				<progress id="progress" max="100" value="0"></progress>
+				<label id="fragenCounter" for="progress">0 von 6</label>
 				
 				<fieldset>
 					<legend>Frage 1</legend>
 					<div class="frage">
-						<p>Frage</p>
-						<button>Eingabe</button>
+						<p class="keinObenabstand">Wann sind Philipp & Marina zusammen gekommen?</p>
+						<label for="jahrestag">Datum: </label>
+						<input type="date" id="jahrestag" name="jahrestag">
+						<br>
+						<button id="btnQ1" class="btnQ">Eingabe</button>
 					</div>
-					<div class="antwort">
-						<p>Antwort</p>
-						<p>Platzhalter</p>
+					<div id="ans1richtig" class="antwort richtig unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinUntenabstand">Es ist der 16. Oktober 2018.</p>
+					</div>
+					<div id="ans1falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Richtig wäre der 16. Oktober 2018.</p>
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Frage 2</legend>
 					<div class="frage">
-						<p>Frage</p>
-						<button>Eingabe</button>
+						<p class="keinObenabstand">Wieviele Tage Altersunterschied ist zwischen Philipp & Marina?</p>
+						<label for="unterschied">Unterschied: </label>
+						<input type="number" step="1" min="0" id="unterschied" name="unterschied">
+						<br>
+						<button id="btnQ2" class="btnQ">Eingabe</button>
 					</div>
-					<div class="antwort">
-						<p>Antwort</p>
-						<p>Platzhalter</p>
+					<div id="ans2richtig" class="antwort richtig unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinUntenabstand">Es sind 497 Tage.</p>
+					</div>
+					<div id="ans2falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Richtig wären 497 Tage.</p>
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Frage 3</legend>
 					<div class="frage">
-						<p>Frage</p>
-						<button>Eingabe</button>
+						<p class="keinObenabstand">Wie liebt hat der Philipp die Marina?</p>
+						<label for="liebesskala">Liebesskala: </label>
+						<input type="range" min="0" max="100" id="liebesskala" name="liebesskala">
+						<br>
+						<button id="btnQ3" class="btnQ">Eingabe</button>
 					</div>
-					<div class="antwort">
-						<p>Antwort</p>
-						<p>Platzhalter</p>
+					<div id="ans3richtig" class="antwort richtig unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinObenabstand">So viel, dass es nicht mehr fester geht.</p>
+					</div>
+					<div id="ans3falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinUntenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Richtig wäre so viel, dass es nicht mehr fester geht.</p>
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Frage 4</legend>
 					<div class="frage">
-						<p>Frage</p>
-						<button>Eingabe</button>
+						<p class="keinObenabstand">Was ist Marina?</p>
+						<input type="checkbox" name="marina" id="Doofili" value="Doofili">
+						<label for="Doofili"> Doofili</label><br>
+						<input type="checkbox" name="marina" id="Schatzi" value="Schatzi">
+						<label for="Schatzi"> Schatzi</label><br>
+						<input type="checkbox" name="marina" id="Schneckli" value="Schneckli">
+						<label for="Schneckli"> Schneckli</label><br>
+						<input type="checkbox" name="marina" id="Kuschlerli" value="Kuschlerli">
+						<label for="Kuschlerli"> Kuschlerli</label><br>
+						<button id="btnQ4" class="btnQ">Eingabe</button>
 					</div>
-					<div class="antwort">
-						<p>Antwort</p>
-						<p>Platzhalter</p>
+					<div id="ans4richtig" class="antwort urichtig nsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinUntenabstand">Marina ist alles davon.</p>
+					</div>
+					<div id="ans4falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Richtig wäre, dass Marina alles davon ist.</p>
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Frage 5</legend>
 					<div class="frage">
-						<p>Frage</p>
-						<button>Eingabe</button>
+						<p class="keinObenabstand">Was tut der Philipp am liebsten?</p>
+						<input type="radio" name="philipp" id="Zocken" value="Zocken">
+						<label for="Zocken"> Zocken</label>
+						<input type="radio" name="philipp" id="Programmieren" value="Programmieren">
+						<label for="Programmieren"> Programmieren</label>
+						<input type="radio" name="philipp" id="Kuscheln" value="Kuscheln">
+						<label for="Kuscheln"> Kuscheln</label>
+						<input type="radio" name="philipp" id="Laufen" value="Laufen">
+						<label for="Laufen"> Laufen</label>
+						<br>
+						<button id="btnQ5" class="btnQ">Eingabe</button>
 					</div>
-					<div class="antwort">
-						<p>Antwort</p>
-						<p>Platzhalter</p>
+					<div id="ans5richtig" class="antwort richtig unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinUntenabstand">Der Philipp tut am liebsten kuscheln.</p>
+					</div>
+					<div id="ans5falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Richtig wäre kuscheln.</p>
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>Frage 6</legend>
 					<div class="frage">
-						<p>Frage</p>
-						<button>Eingabe</button>
+						<p class="keinObenabstand">Was war der erste Satz von Philipp an Marina?</p>
+						<input type="radio" name="satz" id="satz1" value="satz1">
+						<label for="satz1"> "Hab dich lieb."</label>
+						<input type="radio" name="satz" id="satz2" value="satz2">
+						<label for="satz2"> "Da kannst du schmöckern."</label>
+						<input type="radio" name="satz" id="satz3" value="satz3">
+						<label for="satz3"> "Hol mal die Akten."</label>
+						<input type="radio" name="satz" id="satz4" value="satz4">
+						<label for="satz4"> Nichts</label>
+						<br>
+						<button id="btnQ6" class="btnQ">Eingabe</button>
 					</div>
-					<div class="antwort">
-						<p>Antwort</p>
-						<p>Platzhalter</p>
+					<div id="ans6richtig" class="antwort richtig unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt: "Da kannst du in den Kodex mal reinschmöckern.</p>
+					</div>
+					<div id="ans6falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt: "Da kannst du in den Kodex mal reinschmöckern.</p>
 					</div>
 				</fieldset>
 			</form>

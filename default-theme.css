@@ -105,8 +105,9 @@ footer a {
 
 main {
 	flex: 1 100%;
-	min-height: calc((100vh - 11.25em));
+	min-height: calc(100vh - 11.75em);
 	margin: 0 0.5em;
+	width: 100%;
 }
 
 h1 {
@@ -174,6 +175,11 @@ ol {
 	max-height: 100%;
 }
 
+.durchsichtig {
+	display: none;
+	visibility: hidden;
+}
+
 .unsichtbar {
 	display: none;
 }
@@ -188,12 +194,31 @@ form {
 
 fieldset {
 	padding: 0;
-	width: 100%;
+	width: calc(100% - 0.5em);
+}
+
+.frage,
+.antwort {
+	margin: 0.5em;
+	padding: 0.5em;
 }
 
 .antwort {
+	background-color: #ffeaea;
 	border: 1px solid black;
-	margin: 0.5em;
+}
+
+.richtig {
+	background-color: #eaffea;
+	border-color: green;
+}
+
+.falsch {
+	border-color: red;
+}
+
+.btnQ {
+	margin: 1em auto 0;
 }
 
 #output {
@@ -205,21 +230,15 @@ fieldset {
 
 @media (min-width: 35em) {
 	body {
-		display: -ms-grid;
 		display: grid;
-		-ms-grid-gap: 0.5em 2em;
 		grid-gap: 0.5em 2em;
-		-ms-grid-template-columns: 1fr 4fr;
 		grid-template-columns: 1fr 4fr;
 		max-width: 80em;
 		margin: 0.5em auto;
-		padding: auto 0.5em;
 	}
 	
 	nav {
-		-ms-grid-column: 1;
 		grid-column: 1;
-		-ms-grid-row: 2;
 		grid-row: 2;
 		height: 25em;
 		text-align: left;
@@ -237,19 +256,16 @@ fieldset {
 	
 	header,
 	footer {
-		-ms-grid-column: 1 / -1;
 		grid-column: 1 / -1;
 		height: 3em;
 	}
 
 	header {
-		-ms-grid-row: 1;
 		grid-row: 1;
 		margin-bottom: 0.5em;
 	}
 
 	footer{
-		-ms-grid-row: 3;
 		grid-row: 3;
 		margin-top: 0.5em;
 	}
@@ -259,11 +275,9 @@ fieldset {
 	}
 	
 	main {
-		-ms-grid-column: 2 / -1;
 		grid-column: 2 / -1;
-		-ms-grid-row: 2;
 		grid-row: 2;
-		margin: 0,5em auto auto 0em;
+		margin: 0.5em auto auto 0em;
 	}
 	
 	h1 {
@@ -286,9 +300,7 @@ fieldset {
 	}
 	
 	.gallery {
-		display: -ms-grid;
 		display: grid;
-		-ms-grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 		grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 		gap: 2em 1em;
 	}
@@ -301,21 +313,25 @@ fieldset {
 	}
 
 	.gallery figure.querformat {
-		-ms-grid-column-end: span 2;
 		grid-column-end: span 2;
+	}
+	
+	.durchsichtig {
+		display: inline;
 	}
 	
 	fieldset {
 		display: flex;
+		width: calc(100% - 1em);
 	}
 	
 	.frage {
 		flex: 1 100%;
+		max-width: calc(50% - 2em);
 	}
 	
 	.antwort {
 		flex: 1 100%;
-		margin: 0.5em;
 	}
 	
 	#output {
