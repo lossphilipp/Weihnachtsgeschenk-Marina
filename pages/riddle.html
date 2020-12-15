@@ -35,7 +35,7 @@
 			<form id="raetsel">
 				<p class="keinUntenabstand">Beantwortete Fragen:</p>
 				<progress id="progress" max="100" value="0"></progress>
-				<label id="fragenCounter" for="progress">0 von 6</label>
+				<label id="fragenCounter" for="progress">0 von 6 Fragen beantwortet.</label>
 				
 				<fieldset>
 					<legend>Frage 1</legend>
@@ -44,7 +44,7 @@
 						<label for="jahrestag">Datum: </label>
 						<input type="date" id="jahrestag" name="jahrestag">
 						<br>
-						<button id="btnQ1" class="btnQ">Eingabe</button>
+						<button type = "button" id="btnQ1" class="btnQ">Eingabe</button>
 					</div>
 					<div id="ans1richtig" class="antwort richtig unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist richtig!</p>
@@ -59,10 +59,10 @@
 					<legend>Frage 2</legend>
 					<div class="frage">
 						<p class="keinObenabstand">Wieviele Tage Altersunterschied ist zwischen Philipp & Marina?</p>
-						<label for="unterschied">Unterschied: </label>
+						<label for="unterschied">Unterschied (in Tagen): </label>
 						<input type="number" step="1" min="0" id="unterschied" name="unterschied">
 						<br>
-						<button id="btnQ2" class="btnQ">Eingabe</button>
+						<button type = "button" id="btnQ2" class="btnQ">Eingabe</button>
 					</div>
 					<div id="ans2richtig" class="antwort richtig unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist richtig!</p>
@@ -77,10 +77,9 @@
 					<legend>Frage 3</legend>
 					<div class="frage">
 						<p class="keinObenabstand">Wie liebt hat der Philipp die Marina?</p>
-						<label for="liebesskala">Liebesskala: </label>
-						<input type="range" min="0" max="100" id="liebesskala" name="liebesskala">
+						<label for="liebesskala">garnicht <input type="range" min="0" max="100" id="liebesskala" name="liebesskala"> ganz fest</label>
 						<br>
-						<button id="btnQ3" class="btnQ">Eingabe</button>
+						<button type = "button" id="btnQ3" class="btnQ">Eingabe</button>
 					</div>
 					<div id="ans3richtig" class="antwort richtig unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist richtig!</p>
@@ -95,17 +94,17 @@
 					<legend>Frage 4</legend>
 					<div class="frage">
 						<p class="keinObenabstand">Was ist Marina?</p>
-						<input type="checkbox" name="marina" id="Doofili" value="Doofili">
-						<label for="Doofili"> Doofili</label><br>
-						<input type="checkbox" name="marina" id="Schatzi" value="Schatzi">
-						<label for="Schatzi"> Schatzi</label><br>
-						<input type="checkbox" name="marina" id="Schneckli" value="Schneckli">
-						<label for="Schneckli"> Schneckli</label><br>
-						<input type="checkbox" name="marina" id="Kuschlerli" value="Kuschlerli">
-						<label for="Kuschlerli"> Kuschlerli</label><br>
-						<button id="btnQ4" class="btnQ">Eingabe</button>
+						<input type="checkbox" name="marina" id="name1" value="Doofili">
+						<label for="name1"> Doofili</label><br>
+						<input type="checkbox" name="marina" id="name2" value="Schatzi">
+						<label for="name2"> Schatzi</label><br>
+						<input type="checkbox" name="marina" id="name3" value="Schneckli">
+						<label for="name3"> Schneckli</label><br>
+						<input type="checkbox" name="marina" id="name4" value="Kuschlerli">
+						<label for="name4"> Kuschlerli</label><br>
+						<button type = "button" id="btnQ4" class="btnQ">Eingabe</button>
 					</div>
-					<div id="ans4richtig" class="antwort urichtig nsichtbar" aria-hidden="true">
+					<div id="ans4richtig" class="antwort urichtig unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist richtig!</p>
 						<p class="keinUntenabstand">Marina ist alles davon.</p>
 					</div>
@@ -118,16 +117,16 @@
 					<legend>Frage 5</legend>
 					<div class="frage">
 						<p class="keinObenabstand">Was tut der Philipp am liebsten?</p>
-						<input type="radio" name="philipp" id="Zocken" value="Zocken">
-						<label for="Zocken"> Zocken</label>
-						<input type="radio" name="philipp" id="Programmieren" value="Programmieren">
-						<label for="Programmieren"> Programmieren</label>
-						<input type="radio" name="philipp" id="Kuscheln" value="Kuscheln">
-						<label for="Kuscheln"> Kuscheln</label>
-						<input type="radio" name="philipp" id="Laufen" value="Laufen">
-						<label for="Laufen"> Laufen</label>
+						<input type="radio" name="philipp" id="hobby1" value="Zocken">
+						<label for="hobby1"> Zocken</label>
+						<input type="radio" name="philipp" id="hobby2" value="Programmieren">
+						<label for="hobby2"> Programmieren</label>
+						<input type="radio" name="philipp" id="hobby3" value="Kuscheln">
+						<label for="hobby3"> Kuscheln</label>
+						<input type="radio" name="philipp" id="hobby4" value="Laufen">
+						<label for="hobby4"> Laufen</label>
 						<br>
-						<button id="btnQ5" class="btnQ">Eingabe</button>
+						<button type = "button" id="btnQ5" class="btnQ">Eingabe</button>
 					</div>
 					<div id="ans5richtig" class="antwort richtig unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist richtig!</p>
@@ -142,24 +141,24 @@
 					<legend>Frage 6</legend>
 					<div class="frage">
 						<p class="keinObenabstand">Was war der erste Satz von Philipp an Marina?</p>
-						<input type="radio" name="satz" id="satz1" value="satz1">
+						<input type="radio" name="satz" id="satz1" value="Hab dich lieb.">
 						<label for="satz1"> "Hab dich lieb."</label>
-						<input type="radio" name="satz" id="satz2" value="satz2">
+						<input type="radio" name="satz" id="satz2" value="Da kannst du schmöckern.">
 						<label for="satz2"> "Da kannst du schmöckern."</label>
-						<input type="radio" name="satz" id="satz3" value="satz3">
+						<input type="radio" name="satz" id="satz3" value="Hol mal die Akten.">
 						<label for="satz3"> "Hol mal die Akten."</label>
-						<input type="radio" name="satz" id="satz4" value="satz4">
+						<input type="radio" name="satz" id="satz4" value="Nichts">
 						<label for="satz4"> Nichts</label>
 						<br>
-						<button id="btnQ6" class="btnQ">Eingabe</button>
+						<button type = "button" id="btnQ6" class="btnQ">Eingabe</button>
 					</div>
 					<div id="ans6richtig" class="antwort richtig unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist richtig!</p>
-						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt: "Da kannst du in den Kodex mal reinschmöckern.</p>
+						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt:<br>"Da kannst du in den Kodex reinschmöckern.</p>
 					</div>
 					<div id="ans6falsch" class="antwort falsch unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist leider falsch!</p>
-						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt: "Da kannst du in den Kodex mal reinschmöckern.</p>
+						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt:<br>"Da kannst du in den Kodex reinschmöckern.</p>
 					</div>
 				</fieldset>
 			</form>

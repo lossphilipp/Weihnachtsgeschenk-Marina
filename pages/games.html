@@ -37,7 +37,7 @@
 				<h2>Zahlenrätsel</h2>
 				<form>
 					<button type="button" id="zahlenButton" class="keinUntenabstand">Beschreibung ein-/ausblenden</button><br>
-					<p id="beschreibungZahlen" aria-hidden="true" class="verschwinden" >Zuerst muss ein Bereich angegeben werden, in dem der Computer eine zufällige Zahl aussucht. Anschließend muss durch geschicktes Raten versucht werden, mit möglichst wenigen Versuchen die gesuchte Zahl zu finden.</p>
+					<p id="beschreibungZahlen" aria-hidden="true" class="unsichtbar" >Zuerst muss ein Bereich angegeben werden, in dem der Computer eine zufällige Zahl aussucht. Anschließend muss durch geschicktes Raten versucht werden, mit möglichst wenigen Versuchen die gesuchte Zahl zu finden.</p>
 					<div id="output">
 						<output>Hier werden die Ergebnisse angezeigt</output>
 					</div>
@@ -45,11 +45,11 @@
 						<label for="bereich">Der mögliche Bereich soll zwischen 1 und <input id="bereich" type="number" step="1" value="100"> liegen.</label><br>
 						<button type="button" id="start">Rätsel starten</button><br>
 					</div>
-					<div id="spielen" aria-hidden="true" class ="verschwinden">
-						<label for="eingabe">Deine Eingabe: </label><input id="eingabe" type="number" step="1" value="50">
+					<div id="spielen" aria-hidden="true" class ="unsichtbar">
+						<label for="eingabe">Deine Eingabe: <input id="eingabe" type="number" step="1" value="50"></label>
 						<button type="button" id="check">Eingabe</button><br>
 					</div>
-					<button id="reset" type="reset" aria-hidden="true" class ="verschwinden">Eingaben zurücksetzen</button>
+					<button id="reset" type="reset" aria-hidden="true" class ="unsichtbar">Eingaben zurücksetzen</button>
 				</form>
 			</div>
 		</main>

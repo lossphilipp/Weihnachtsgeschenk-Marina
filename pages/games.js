@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	resetButton = document.querySelector('#reset');
 	output = document.querySelector('output');
 
-	document.querySelector('#start').addEventListener('click', spielstart);
-	document.querySelector('#check').addEventListener('click', runde);
-	resetButton.addEventListener('click', resetten);
+	document.querySelector('#start').addEventListener('click', function() {spielstart;}, true);
+	document.querySelector('#check').addEventListener('click', function() {runde;}, true);
+	resetButton.addEventListener('click', function() {resetten;}, true);
 
 	// Legt beim Drücken des Start-Buttons die zufällige Zahl fest und blendet die entsprechendne Felder aus bzw. ein.
 	function spielstart() {
