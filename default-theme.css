@@ -154,6 +154,10 @@ ol {
 	padding-top: 0;
 }
 
+#brief p {
+    user-select: none;
+}
+
 .gallery figure {
 	position: relative;
 	margin: 0;
@@ -236,6 +240,10 @@ fieldset button {
 
 #ergebnisemoji {
 	text-align: center;
+}
+
+#ergebnisemoji img {
+	max-width: 50%;
 }
 
 #output {

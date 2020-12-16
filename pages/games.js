@@ -77,16 +77,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	};
 
 	// Funktionen damit das Script nach der Zahleneingabe auch beim Drücken von Enter ausgeführt wird und nicht nur beim Drücken der Buttons.
-	var inputBereich = document.querySelector('#bereich'),
-		inputGuess = document.querySelector('#spielen');
-
-	inputBereich.addEventListener('keyup', function(event) {
+	document.querySelector('#bereich').addEventListener('keyup', function(event) {
 		if (event.keyCode === 13) {
 			document.querySelector('#start').click();
 		}
 	}); 
 
-	inputGuess.addEventListener('keyup', function(event) {
+	document.querySelector('#spielen').addEventListener('keyup', function(event) {
 		if (event.keyCode === 13) {
 			document.querySelector('#check').click();
 		}

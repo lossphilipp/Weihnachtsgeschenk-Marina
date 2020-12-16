@@ -41,12 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	// Antwort kontrollieren und das entsprechende <div> einblenden
 	function antwort(nr) {
+		console.log(`Button "${nr.getAttribute('id')}" gedrückt.`);
 		if (nr == btnQ1) {
 			if (document.querySelector('#jahrestag').value == '2018-10-16') {
 				document.querySelector('#ans1richtig').setAttribute('aria-hidden', false);
 				document.querySelector('#ans1richtig').className = 'antwort richtig';
 				fragenRichtig = fragenRichtig + 1;
 			} else if (document.querySelector('#jahrestag').value == '') {
+				console.log('Leereingabe');
 				alert('Bitte geben sie vor der Überprüfung ein Datum ein.');
 				throw('Kein Datum (Frage 1)');
 			} else {
@@ -59,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.querySelector('#ans2richtig').className = 'antwort richtig';
 				fragenRichtig = fragenRichtig + 1;
 			} else if (document.querySelector('#unterschied').value == '') {
+				console.log('Leereingabe');
 				alert('Bitte geben sie vor der Überprüfung eine Zahl ein.');
 				throw('Keine Zahl (Frage 2)');
 			} else {
@@ -80,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.querySelector('#ans4richtig').className = 'antwort richtig';
 				fragenRichtig = fragenRichtig + 1;
 			} else if (!name1.checked && !name2.checked && !name3.checked && !name4.checked) {
+				console.log('Leereingabe');
 				alert('Bitte Tätigen sie vor der Überprüfung eine Auswahl.');
 				throw('Kein Auswahl (Frage 4)');
 			} else {
@@ -92,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.querySelector('#ans5richtig').className = 'antwort richtig';
 				fragenRichtig = fragenRichtig + 1;
 			} else if (!hobby1.checked && !hobby2.checked && !hobby3.checked && !hobby4.checked) {
+				console.log('Leereingabe');
 				alert('Bitte Tätigen sie vor der Überprüfung eine Auswahl.');
 				throw('Kein Auswahl (Frage 5)');
 			} else {
@@ -104,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.querySelector('#ans6richtig').className = 'antwort richtig';
 				fragenRichtig = fragenRichtig + 1;
 			} else if (!satz1.checked && !satz2.checked && !satz3.checked && !satz4.checked) {
+				console.log('Leereingabe');
 				alert('Bitte Tätigen sie vor der Überprüfung eine Auswahl.');
 				throw('Kein Auswahl (Frage 6)');
 			} else {
@@ -117,26 +123,35 @@ document.addEventListener('DOMContentLoaded', function() {
 		progress();
 		nr.setAttribute('aria-hidden', true);
 		nr.className = 'btnQ durchsichtig';
-		console.log(`Button "${nr.getAttribute('id')}" gedrückt.`);
 		console.log(`Fragen: ${fragen}; in Prozent: ${(fragen / fragenGesamt * 100)}`);
 		
 		if (fragen == fragenGesamt) {
-			document.querySelector('#ergebnis').className = '';
-			
-			var ergebnisText = document.createElement("p");
-			ergebnisText.innerText = `Du hast ${fragenRichtig} von ${fragenGesamt} Fragen richtig!`;
-			document.querySelector('#punktestand').appendChild(ergebnisText);
-			
-			var ergebnisBild = document.createElement("img");
-			if (fragenRichtig < 3) {
-				ergebnisBild.setAttribute('src', '../icons/smiley-sad.svg');
-			} else if (fragenRichtig > 4) {
-				ergebnisBild.setAttribute('src', '../icons/smiley-happy.svg');
-			} else {
-				ergebnisBild.setAttribute('src', '../icons/smiley-neutral.svg');
-			};
-			ergebnisBild.setAttribute('style', 'max-width: 50%;')
-			document.querySelector('#ergebnisemoji').appendChild(ergebnisBild);
+			ergebnisauswertung();
 		};
 	};
+	
+	// Wenn alle Fragen eingegeben wurden soll ein Ergebnisfenster eingeblendet werden, dass die Leistung bewertet.
+	function ergebnisauswertung() {
+		document.querySelector('#ergebnis').className = '';
+		console.log(`${fragenRichtig} von ${fragenGesamt} Fragen richtig!`);
+		
+		var ergebnisPunkte = document.createElement("p"),
+			ergebnisText = document.createElement("p"),
+			ergebnisBild = document.createElement("img");
+			
+		ergebnisPunkte.innerText = `Du hast ${fragenRichtig} von ${fragenGesamt} Fragen richtig!`;
+		if (fragenRichtig < 3) {
+			ergebnisText.innerText = 'Du bist eindeutig nicht Marina, sonst wüsstest du mehr!';
+			ergebnisBild.setAttribute('src', '../icons/smiley-sad.svg');
+		} else if (fragenRichtig > 4) {
+			ergebnisText.innerHTML = 'Das ist gut wenn du so viel weißt!<br>Hab dich lieb!';
+			ergebnisBild.setAttribute('src', '../icons/smiley-happy.svg');
+		} else {
+			ergebnisText.innerText = 'Nicht schlecht, aber das kann noch besser werden!';
+			ergebnisBild.setAttribute('src', '../icons/smiley-neutral.svg');
+		};
+		document.querySelector('#punktestand').appendChild(ergebnisPunkte);
+		document.querySelector('#punktestand').appendChild(ergebnisText);
+		document.querySelector('#ergebnisemoji').appendChild(ergebnisBild);
+	}
 });
