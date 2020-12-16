@@ -105,7 +105,7 @@ footer a {
 
 main {
 	flex: 1 100%;
-	min-height: calc(100vh - 11.75em);
+	min-height: calc(100vh - 13em);
 	margin: 0 0.5em;
 	width: 100%;
 }
@@ -193,32 +193,49 @@ form {
 }
 
 fieldset {
-	padding: 0;
-	width: calc(100% - 0.5em);
+	padding: 0.5em;
+	width: calc(100% - 1.5em);
+}
+
+fieldset button {
+	width: 100%;
 }
 
 .frage,
 .antwort {
-	margin: 0.5em;
 	padding: 0.5em;
-}
-
-.antwort {
-	background-color: #ffeaea;
-	border: 1px solid black;
 }
 
 .richtig {
 	background-color: #eaffea;
-	border-color: green;
+	border: 1px solid green;
 }
 
 .falsch {
-	border-color: red;
+	background-color: #ffeaea;
+	border: 1px solid red;
 }
 
 .btnQ {
-	margin: 1em auto 0;
+	margin: 1em 0 0;
+}
+
+#frage3 {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#frage3 p,
+#frage3 input {
+	width: 80%;
+}
+
+#frage3 label {
+	width: 40%;
+}
+
+#ergebnisemoji {
+	text-align: center;
 }
 
 #output {
@@ -278,6 +295,7 @@ fieldset {
 		grid-column: 2 / -1;
 		grid-row: 2;
 		margin: 0.5em auto auto 0em;
+		min-height: calc(100vh - 11.75em);
 	}
 	
 	h1 {
@@ -322,7 +340,10 @@ fieldset {
 	
 	fieldset {
 		display: flex;
-		width: calc(100% - 1em);
+	}
+	
+	fieldset button {
+		width: auto;
 	}
 	
 	.frage {
