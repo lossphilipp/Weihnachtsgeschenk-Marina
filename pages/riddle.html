@@ -35,7 +35,7 @@
 			<form id="raetsel">
 				<p class="keinUntenabstand">Beantwortete Fragen:</p><br>
 				<progress id="progress" max="100" value="0"></progress><br>
-				<label id="fragenCounter" for="progress">0 von 6 Fragen beantwortet.</label><br><br>
+				<label id="fragenCounter" for="progress">x von y Fragen beantwortet.</label><br><br>
 				
 				<fieldset>
 					<legend>Frage 1</legend>
@@ -61,6 +61,7 @@
 						<p class="keinObenabstand">Wieviele Tage Altersunterschied ist zwischen Philipp & Marina?</p>
 						<label for="unterschied">Unterschied (in Tagen): </label>
 						<input type="number" step="1" min="0" id="unterschied" name="unterschied" placeholder="Altersunterschied">
+						<input type="text" name="schoenheitsfehler" class="unsichtbar">
 						<br>
 						<div class="linksbuendig"><button type = "button" id="btnQ2" class="btnQ">Eingabe</button></div>
 					</div>
@@ -174,6 +175,37 @@
 					<div id="ans6falsch" class="antwort falsch unsichtbar" aria-hidden="true">
 						<p class="keinObenabstand">Das ist leider falsch!</p>
 						<p class="keinUntenabstand">Philipp hat am ersten Arbeitstag gesagt:<br>"Da kannst du in den Kodex reinschmöckern.</p>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Frage 7</legend>
+					<div class="frage">
+						<p class="keinObenabstand">Wer hat dazu beigetragen, dass wir zusammen sind?</p>
+						<div>
+							<input type="radio" name="person" id="person1" value="Sarahwithstyle">
+							<label for="person1"> Sarahwithstyle</label>
+						</div>
+						<div>
+							<input type="radio" name="person" id="person2" value="Hannahwithhelp">
+							<label for="person2"> Hannahwithhelp</label>
+						</div>
+						<div>
+							<input type="radio" name="person" id="person3" value="Johannawithjoy">
+							<label for="person3"> Johannawithjoy</label>
+						</div>
+						<div>
+							<input type="radio" name="person" id="person4" value="Laurawithlove">
+							<label for="person4"> Laurawithlove</label>
+						</div>
+						<button type = "button" id="btnQ7" class="btnQ">Eingabe</button>
+					</div>
+					<div id="ans7richtig" class="antwort richtig unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist richtig!</p>
+						<p class="keinUntenabstand">Der Brief am Pöstlingberg ist von "Laurawithlove" gekommen.</p>
+					</div>
+					<div id="ans7falsch" class="antwort falsch unsichtbar" aria-hidden="true">
+						<p class="keinObenabstand">Das ist leider falsch!</p>
+						<p class="keinUntenabstand">Der Brief am Pöstlingberg ist von "Laurawithlove" gekommen.</p>
 					</div>
 				</fieldset>
 				<fieldset id="ergebnis" class="unsichtbar">

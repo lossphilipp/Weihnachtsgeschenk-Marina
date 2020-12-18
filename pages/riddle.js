@@ -1,7 +1,7 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function() {
 	var fragen = 0,
-		fragenGesamt = 6,
+		fragenGesamt = 7,
 		fragenRichtig = 0,
 		btnQ1 = document.querySelector('#btnQ1'),
 		btnQ2 = document.querySelector('#btnQ2'),
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		btnQ4 = document.querySelector('#btnQ4'),
 		btnQ5 = document.querySelector('#btnQ5'),
 		btnQ6 = document.querySelector('#btnQ6'),
+		btnQ7 = document.querySelector('#btnQ7'),
 		name1 = document.querySelector('#name1'),
 		name2 = document.querySelector('#name2'),
 		name3 = document.querySelector('#name3'),
@@ -21,9 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		satz2 = document.querySelector('#satz2'),
 		satz3 = document.querySelector('#satz3'),
 		satz4 = document.querySelector('#satz4'),
+		person1 = document.querySelector('#person1'),
+		person2 = document.querySelector('#person2'),
+		person3 = document.querySelector('#person3'),
+		person4 = document.querySelector('#person4'),
 		heute = new Date().toISOString().split("T")[0];
 	
 	document.querySelector('#jahrestag').setAttribute('max', heute);
+	document.querySelector('#fragenCounter').innerText = `${fragen} von ${fragenGesamt} Fragen beantwortet.`
 	
 	btnQ1.addEventListener('click', function() {antwort(btnQ1);}, true);
 	btnQ2.addEventListener('click', function() {antwort(btnQ2);}, true);
@@ -31,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	btnQ4.addEventListener('click', function() {antwort(btnQ4);}, true);
 	btnQ5.addEventListener('click', function() {antwort(btnQ5);}, true);
 	btnQ6.addEventListener('click', function() {antwort(btnQ6);}, true);
+	btnQ7.addEventListener('click', function() {antwort(btnQ7);}, true);
 	
 	// Berechnung der Progressbar
 	function progress() {
@@ -116,6 +123,19 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.querySelector('#ans6falsch').setAttribute('aria-hidden', false);
 				document.querySelector('#ans6falsch').className = 'antwort falsch';
 			};
+		} else if (nr == btnQ7) {
+			if (person4.checked) {
+				document.querySelector('#ans7richtig').setAttribute('aria-hidden', false);
+				document.querySelector('#ans7richtig').className = 'antwort richtig';
+				fragenRichtig = fragenRichtig + 1;
+			} else if (!person1.checked && !person2.checked && !person3.checked && !person4.checked) {
+				console.log('Leereingabe');
+				alert('Bitte Tätigen sie vor der Überprüfung eine Auswahl.');
+				throw('Kein Auswahl (Frage 7)');
+			} else {
+				document.querySelector('#ans7falsch').setAttribute('aria-hidden', false);
+				document.querySelector('#ans7falsch').className = 'antwort falsch';
+			};
 		} else {
 			alert('Button konnte nicht festgestellt werden!');
 		};
@@ -123,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		progress();
 		nr.setAttribute('aria-hidden', true);
 		nr.className = 'btnQ durchsichtig';
-		console.log(`Fragen: ${fragen}; in Prozent: ${(fragen / fragenGesamt * 100)}`);
+		console.log(`beantwortete Fragen: ${fragen} | in Prozent: ${(fragen / fragenGesamt * 100)}`);
 		
 		if (fragen == fragenGesamt) {
 			ergebnisauswertung();
@@ -133,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Wenn alle Fragen eingegeben wurden soll ein Ergebnisfenster eingeblendet werden, dass die Leistung bewertet.
 	function ergebnisauswertung() {
 		document.querySelector('#ergebnis').className = '';
-		console.log(`${fragenRichtig} von ${fragenGesamt} Fragen richtig!`);
+		console.log(`${fragenRichtig} von ${fragenGesamt} Fragen richtig! | in Prozent: ${(fragenRichtig / fragenGesamt * 100)}`);
 		
 		var ergebnisPunkte = document.createElement("p"),
 			ergebnisText = document.createElement("p"),
@@ -143,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (fragenRichtig < 3) {
 			ergebnisText.innerText = 'Du bist eindeutig nicht Marina, sonst wüsstest du mehr!';
 			ergebnisBild.setAttribute('src', '../icons/smiley-sad.svg');
-		} else if (fragenRichtig > 4) {
+		} else if (fragenRichtig > 5) {
 			ergebnisText.innerHTML = 'Das ist gut wenn du so viel weißt!<br>Hab dich lieb!';
 			ergebnisBild.setAttribute('src', '../icons/smiley-happy.svg');
 		} else {
@@ -153,5 +173,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector('#punktestand').appendChild(ergebnisPunkte);
 		document.querySelector('#punktestand').appendChild(ergebnisText);
 		document.querySelector('#ergebnisemoji').appendChild(ergebnisBild);
-	}
+	};
+	
+	// Funktionen damit das Script auch beim Drücken von Enter ausgeführt wird und nicht nur beim Drücken der Buttons.
+	document.querySelector('#unterschied').addEventListener('keyup', function(event) {
+		if (event.keyCode === 13) {
+			document.querySelector('#btnQ2').click();
+		}
+	}); 
 });
