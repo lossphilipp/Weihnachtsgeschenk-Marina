@@ -160,10 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			ergebnisBild = document.createElement("img");
 			
 		ergebnisPunkte.innerText = `Du hast ${fragenRichtig} von ${fragenGesamt} Fragen richtig!`;
-		if (fragenRichtig < 3) {
+		if ((fragenRichtig / fragenGesamt * 100) < 26) {
 			ergebnisText.innerText = 'Du bist eindeutig nicht Marina, sonst wüsstest du mehr!';
 			ergebnisBild.setAttribute('src', '../icons/smiley-sad.svg');
-		} else if (fragenRichtig > 5) {
+		} else if ((fragenRichtig / fragenGesamt * 100) > 74) {
 			ergebnisText.innerHTML = 'Das ist gut wenn du so viel weißt!<br>Hab dich lieb!';
 			ergebnisBild.setAttribute('src', '../icons/smiley-happy.svg');
 		} else {
