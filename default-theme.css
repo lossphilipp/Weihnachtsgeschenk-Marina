@@ -58,7 +58,6 @@ nav ul li:focus,
 nav ul li:hover,
 nav ul li:active {   
 	display: block;
-	vertical-align: middle;
 	transform: perspective(1px) translateZ(0);
 	transition-duration: 0.3s;
 	transition-property: box-shadow;
@@ -67,7 +66,6 @@ nav ul li:active {
 
 .active-navigation {
 	display: block;
-	vertical-align: middle;
 	transform: perspective(1px) translateZ(0);
 	transition-duration: 0.3s;
 	transition-property: box-shadow;
@@ -77,6 +75,7 @@ nav ul li:active {
 header,
 footer {
 	flex: 1 100%;
+	margin: 0;
 	padding: 0.5em;
 	height: 1.5em;
 	background-color: #e4ebf2;
@@ -259,7 +258,6 @@ fieldset button {
 		grid-gap: 0.5em 2em;
 		grid-template-columns: 1fr 4fr;
 		max-width: 80em;
-		margin: 0.5em auto;
 	}
 	
 	nav {
